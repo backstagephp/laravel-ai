@@ -2,9 +2,9 @@
 
 namespace Backstage\Laravel\AI;
 
+use Backstage\Laravel\AI\Commands\AICommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Backstage\Laravel\AI\Commands\AICommand;
 
 class AIServiceProvider extends PackageServiceProvider
 {

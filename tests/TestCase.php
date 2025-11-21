@@ -2,9 +2,9 @@
 
 namespace Backstage\Laravel\AI\Tests;
 
+use Backstage\Laravel\AI\AIServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Backstage\Laravel\AI\AIServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Backstage\Laravel\\AI\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Backstage\Laravel\\AI\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
