@@ -2,7 +2,7 @@
 
 namespace Backstage\Laravel\AI;
 
-use Backstage\Laravel\AI\Commands\AICommand;
+use Backstage\Laravel\AI\Managers\APIManager;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,9 +17,11 @@ class AIServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('ai')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_ai_table')
-            ->hasCommand(AICommand::class);
+            ->hasConfigFile();
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton('backstage.laravel-ai.api.client', fn ($app): APIManager => new APIManager($app));
     }
 }
